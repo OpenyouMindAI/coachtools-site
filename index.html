@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coach Tools — +100 Herramientas para Coaches Profesionales por Ariel Díaz</title>
+  <meta name="description" content="Kit de +100 herramientas profesionales para coaches. Plantillas, evaluaciones, dinámicas, marketing y más. Por Ariel Díaz, 25+ años de experiencia.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            dark: '#1A1A1A',
+            gold: '#F5A623',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1A1A1A; }
+
+    /* Ticker */
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-wrap { overflow: hidden; }
+    .ticker-move { display: flex; animation: ticker 25s linear infinite; white-space: nowrap; }
+
+    /* Typewriter */
+    .typewriter { display: inline; }
+    .typewriter-cursor { display: inline-block; width: 2px; height: 1.1em; background: #1A1A1A; margin-left: 2px; animation: blink 0.8s step-end infinite; vertical-align: text-bottom; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Cyan glow */
+    .glow-btn { box-shadow: 0 0 20px rgba(135,206,235,0.35), 0 0 40px rgba(135,206,235,0.15); transition: box-shadow 0.3s; }
+    .glow-btn:hover { box-shadow: 0 0 30px rgba(135,206,235,0.55), 0 0 60px rgba(135,206,235,0.25); }
+
+    /* Fade in on scroll */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Price strike */
+    .price-old { position: relative; color: #999; }
+    .price-old::after { content: ''; position: absolute; left: -4px; right: -4px; top: 50%; height: 3px; background: #ef4444; transform: rotate(-8deg); }
+
+    /* Testimonial carousel */
+    .testimonial-track { display: flex; animation: scrollTestimonials 30s linear infinite; }
+    @keyframes scrollTestimonials {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Pulse CTA */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(135,206,235,0.3); }
+      50% { box-shadow: 0 0 35px rgba(135,206,235,0.6), 0 0 60px rgba(135,206,235,0.2); }
+    }
+    .pulse-cta { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+    /* Mobile nav */
+    .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+    .mobile-menu.open { transform: translateX(0); }
+
+    /* Smooth counter */
+    .counter-value { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- ============ 1. BARRA SUPERIOR PROMO ============ -->
+<div class="bg-dark text-white py-2 text-sm font-medium relative z-50">
+  <div class="ticker-wrap">
+    <div class="ticker-move">
+      <span class="mx-8">🔥 OFERTA ESPECIAL: Ahorrá más del 85% — Solo por tiempo limitado</span>
+      <span class="mx-8">⚡ +100 herramientas profesionales por una fracción de su valor</span>
+      <span class="mx-8">🎁 5 BONOS EXCLUSIVOS incluidos con tu compra hoy</span>
+      <span class="mx-8">✅ Garantía de 7 días — Sin riesgo, sin preguntas</span>
+      <span class="mx-8">🔥 OFERTA ESPECIAL: Ahorrá más del 85% — Solo por tiempo limitado</span>
+      <span class="mx-8">⚡ +100 herramientas profesionales por una fracción de su valor</span>
+      <span class="mx-8">🎁 5 BONOS EXCLUSIVOS incluidos con tu compra hoy</span>
+      <span class="mx-8">✅ Garantía de 7 días — Sin riesgo, sin preguntas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2. NAV ============ -->
+<nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="#" class="font-serif text-2xl text-dark tracking-tight">Coach<span class="text-sky-400">Tools</span></a>
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+      <a href="#problema" class="hover:text-dark transition">El Problema</a>
+      <a href="#incluye" class="hover:text-dark transition">Qué Incluye</a>
+      <a href="#bonos" class="hover:text-dark transition">Bonos</a>
+      <a href="#precio" class="hover:text-dark transition">Precio</a>
+      <a href="#faq" class="hover:text-dark transition">FAQ</a>
+    </div>
+    <!-- CTA -->
+    <a href="#precio" class="hidden md:inline-flex bg-dark text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-gray-800 transition">Quiero el Kit →</a>
+    <!-- Mobile burger -->
+    <button id="burger" class="md:hidden p-2" aria-label="Menú">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-xl z-50 flex flex-col p-6 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <a href="#problema" class="text-lg font-medium mob-link">El Problema</a>
+    <a href="#incluye" class="text-lg font-medium mob-link">Qué Incluye</a>
+    <a href="#bonos" class="text-lg font-medium mob-link">Bonos</a>
+    <a href="#precio" class="text-lg font-medium mob-link">Precio</a>
+    <a href="#faq" class="text-lg font-medium mob-link">FAQ</a>
+    <a href="#precio" class="bg-dark text-white text-center font-semibold px-6 py-3 rounded-full mob-link">Quiero el Kit →</a>
+  </div>
+</nav>
+
+<!-- ============ 3. HERO ============ -->
+<section class="pt-20 pb-24 md:pt-32 md:pb-36 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
+      Todas las herramientas<br>que un coach necesita
+    </h1>
+    <p class="text-lg sm:text-xl text-gray-500 mb-2 h-8">
+      <span id="typewriter" class="typewriter"></span><span class="typewriter-cursor"></span>
+    </p>
+    <p class="text-base text-gray-400 mb-10 mt-4">Un solo pago · Acceso de por vida · +100 recursos editables</p>
+
+    <a href="#precio" class="inline-flex items-center gap-2 bg-dark text-white text-lg font-semibold px-10 py-4 rounded-full glow-btn pulse-cta hover:scale-[1.03] transition-transform">
+      Obtener el Kit Completo →
+    </a>
+
+    <!-- Social proof -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="flex -space-x-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">MC</div>
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">LP</div>
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">AR</div>
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-violet-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">SG</div>
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">+</div>
+      </div>
+      <div class="text-sm text-gray-500">
+        <span class="text-amber-400">★★★★★</span> <strong class="text-dark">4.9</strong>/5 de <strong class="text-dark">2,400+</strong> coaches
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. EL PROBLEMA ============ -->
+<section id="problema" class="py-20 md:py-28 px-4 bg-gray-50">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">El problema</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-4">¿Te suena familiar?</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">La mayoría de coaches pierde tiempo, energía y clientes porque no tiene las herramientas correctas.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+        <div class="text-3xl mb-4">😰</div>
+        <h3 class="font-semibold text-lg mb-2">Improvisás cada sesión</h3>
+        <p class="text-gray-500 text-sm">Cada semana creás materiales desde cero. Sin estructura, sin sistema. Terminás agotado antes de empezar.</p>
+      </div>
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+        <div class="text-3xl mb-4">📉</div>
+        <h3 class="font-semibold text-lg mb-2">Tus clientes no ven resultados claros</h3>
+        <p class="text-gray-500 text-sm">Sin evaluaciones ni seguimiento profesional, los coachees no perciben su propio avance. Y se van.</p>
+      </div>
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+        <div class="text-3xl mb-4">🤷</div>
+        <h3 class="font-semibold text-lg mb-2">No sabés cómo poner precios</h3>
+        <p class="text-gray-500 text-sm">Cobrás menos de lo que valés porque no tenés una guía de pricing ni referencias del mercado. Te subvalorás.</p>
+      </div>
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
+        <div class="text-3xl mb-4">🔄</div>
+        <h3 class="font-semibold text-lg mb-2">Tu negocio de coaching no escala</h3>
+        <p class="text-gray-500 text-sm">Sin plantillas de marketing, sin protocolo de sesiones, sin sistemas. Todo depende 100% de vos.</p>
+      </div>
+    </div>
+    <p class="text-center text-gray-400 mt-10 text-sm fade-in">Cada día sin las herramientas correctas es un día que perdés clientes, ingresos y credibilidad profesional.</p>
+  </div>
+</section>
+
+<!-- ============ 5. STATS ============ -->
+<section class="py-20 md:py-24 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="fade-in">
+        <div class="font-serif text-4xl md:text-5xl mb-1 counter-value" data-target="25">0</div>
+        <div class="text-sm text-gray-500">Años de experiencia</div>
+      </div>
+      <div class="fade-in">
+        <div class="font-serif text-4xl md:text-5xl mb-1 counter-value" data-target="15000">0</div>
+        <div class="text-sm text-gray-500">Personas impactadas</div>
+      </div>
+      <div class="fade-in">
+        <div class="font-serif text-4xl md:text-5xl mb-1 counter-value" data-target="100">0</div>
+        <div class="text-sm text-gray-500">Herramientas incluidas</div>
+      </div>
+      <div class="fade-in">
+        <div class="font-serif text-4xl md:text-5xl mb-1 counter-value" data-target="15">0</div>
+        <div class="text-sm text-gray-500">Países</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. ANTES vs DESPUÉS ============ -->
+<section class="py-20 md:py-28 px-4 bg-gray-50">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">La transformación</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl">Antes vs. Después del Kit</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 fade-in">
+      <!-- Antes -->
+      <div class="bg-white rounded-2xl p-8 border border-red-100">
+        <h3 class="font-semibold text-lg text-red-500 mb-6 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          Sin Coach Tools
+        </h3>
+        <ul class="space-y-4 text-sm text-gray-600">
+          <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span> Improvisás cada sesión sin estructura</li>
+          <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span> Perdés horas creando materiales desde cero</li>
+          <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span> Tus clientes no ven su progreso claramente</li>
+          <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span> Cobrás menos porque no sabés poner precios</li>
+          <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span> No tenés un sistema para captar nuevos clientes</li>
+          <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span> Tu coaching se ve amateur</li>
+        </ul>
+      </div>
+      <!-- Después -->
+      <div class="bg-white rounded-2xl p-8 border border-emerald-100 shadow-md">
+        <h3 class="font-semibold text-lg text-emerald-500 mb-6 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Con Coach Tools
+        </h3>
+        <ul class="space-y-4 text-sm text-gray-600">
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Sesiones estructuradas y profesionales desde el día 1</li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> +100 plantillas listas para usar y personalizar</li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Evaluaciones que demuestran el progreso del cliente</li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Guía de precios para cobrar lo que realmente valés</li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Plantillas de marketing listas para captar clientes</li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Tu práctica se ve 100% profesional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. CÓMO FUNCIONA ============ -->
+<section class="py-20 md:py-28 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">Cómo funciona</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl">Tres pasos simples</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="text-center fade-in">
+        <div class="w-14 h-14 rounded-full bg-dark text-white font-serif text-2xl flex items-center justify-center mx-auto mb-5">1</div>
+        <h3 class="font-semibold text-lg mb-2">Accedé al Kit</h3>
+        <p class="text-gray-500 text-sm">Hacé tu pago único y recibí acceso inmediato a las +100 herramientas en tu email.</p>
+      </div>
+      <div class="text-center fade-in">
+        <div class="w-14 h-14 rounded-full bg-dark text-white font-serif text-2xl flex items-center justify-center mx-auto mb-5">2</div>
+        <h3 class="font-semibold text-lg mb-2">Personalizá</h3>
+        <p class="text-gray-500 text-sm">Cada plantilla es editable en Google Docs, Sheets o Canva. Adaptala a tu marca y estilo en minutos.</p>
+      </div>
+      <div class="text-center fade-in">
+        <div class="w-14 h-14 rounded-full bg-dark text-white font-serif text-2xl flex items-center justify-center mx-auto mb-5">3</div>
+        <h3 class="font-semibold text-lg mb-2">Transformá tu práctica</h3>
+        <p class="text-gray-500 text-sm">Empezá a dar sesiones profesionales, captar más clientes y cobrar lo que merecés desde el día 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. LO QUE INCLUYE — 6 MÓDULOS ============ -->
+<section id="incluye" class="py-20 md:py-28 px-4 bg-gray-50">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">Qué incluye</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-4">6 Módulos Profesionales</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Más de 100 herramientas editables en PDF, Google Docs/Sheets y Canva.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Módulo 1 -->
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow group">
+        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">📋</div>
+        <h3 class="font-semibold text-lg mb-2">Plantillas de Sesión</h3>
+        <p class="text-gray-500 text-sm mb-4">Estructuras completas para sesiones individuales, grupales y de seguimiento. Nunca más improvises.</p>
+        <p class="text-xs text-sky-500 font-medium">Incluye +20 plantillas editables</p>
+      </div>
+      <!-- Módulo 2 -->
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow group">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">📊</div>
+        <h3 class="font-semibold text-lg mb-2">Evaluación y Diagnóstico</h3>
+        <p class="text-gray-500 text-sm mb-4">Herramientas para evaluar el punto de partida de tu cliente y medir su avance de forma tangible.</p>
+        <p class="text-xs text-amber-500 font-medium">Incluye +15 evaluaciones</p>
+      </div>
+      <!-- Módulo 3 -->
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">💬</div>
+        <h3 class="font-semibold text-lg mb-2">Comunicación</h3>
+        <p class="text-gray-500 text-sm mb-4">Guías de comunicación efectiva, feedback constructivo y técnicas de escucha activa para coaches.</p>
+        <p class="text-xs text-emerald-500 font-medium">Incluye +15 recursos</p>
+      </div>
+      <!-- Módulo 4 -->
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow group">
+        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">⚙️</div>
+        <h3 class="font-semibold text-lg mb-2">Gestión de Práctica</h3>
+        <p class="text-gray-500 text-sm mb-4">Contratos, acuerdos de confidencialidad, planificadores de agenda y herramientas administrativas.</p>
+        <p class="text-xs text-purple-500 font-medium">Incluye +15 documentos</p>
+      </div>
+      <!-- Módulo 5 -->
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow group">
+        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">🎯</div>
+        <h3 class="font-semibold text-lg mb-2">Dinámicas y Ejercicios</h3>
+        <p class="text-gray-500 text-sm mb-4">Actividades transformadoras para sesiones individuales y grupales. Ejercicios que generan resultados reales.</p>
+        <p class="text-xs text-rose-500 font-medium">Incluye +20 dinámicas</p>
+      </div>
+      <!-- Módulo 6 -->
+      <div class="fade-in bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-shadow group">
+        <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">📣</div>
+        <h3 class="font-semibold text-lg mb-2">Marketing para Coaches</h3>
+        <p class="text-gray-500 text-sm mb-4">Plantillas para redes sociales, emails, landing pages y estrategias de captación de clientes.</p>
+        <p class="text-xs text-indigo-500 font-medium">Incluye +15 plantillas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. BONOS EXCLUSIVOS ============ -->
+<section id="bonos" class="py-20 md:py-28 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-amber-500 mb-3">Solo por hoy</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-4">5 Bonos Exclusivos</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Valor total: <strong>$400+ USD</strong> — Incluidos sin costo adicional con tu compra.</p>
+    </div>
+    <div class="space-y-5">
+      <div class="fade-in flex items-start gap-5 bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
+        <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">1</div>
+        <div>
+          <h3 class="font-semibold text-lg">Guía de Precios para Coaches <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">Valor: $97</span></h3>
+          <p class="text-gray-500 text-sm mt-1">Aprendé a calcular, comunicar y defender tus tarifas con confianza. Incluye benchmarks del mercado.</p>
+        </div>
+      </div>
+      <div class="fade-in flex items-start gap-5 bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
+        <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">2</div>
+        <div>
+          <h3 class="font-semibold text-lg">Banco de +500 Preguntas Poderosas <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">Valor: $97</span></h3>
+          <p class="text-gray-500 text-sm mt-1">Preguntas organizadas por categoría para desbloquear insights en tus clientes. Nunca te quedes sin qué preguntar.</p>
+        </div>
+      </div>
+      <div class="fade-in flex items-start gap-5 bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
+        <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">3</div>
+        <div>
+          <h3 class="font-semibold text-lg">Protocolo de Sesión Paso a Paso <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">Valor: $77</span></h3>
+          <p class="text-gray-500 text-sm mt-1">Estructura exacta de cómo conducir una sesión de coaching profesional de principio a fin.</p>
+        </div>
+      </div>
+      <div class="fade-in flex items-start gap-5 bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
+        <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">4</div>
+        <div>
+          <h3 class="font-semibold text-lg">Masterclass: Cómo Cobrar Más <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">Valor: $67</span></h3>
+          <p class="text-gray-500 text-sm mt-1">Video-clase completa sobre posicionamiento, propuesta de valor y estrategia de precios premium.</p>
+        </div>
+      </div>
+      <div class="fade-in flex items-start gap-5 bg-amber-50/50 rounded-2xl p-6 border border-amber-100">
+        <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">5</div>
+        <div>
+          <h3 class="font-semibold text-lg">Actualizaciones de Por Vida <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">∞</span></h3>
+          <p class="text-gray-500 text-sm mt-1">Cada nueva herramienta, plantilla o recurso que agreguemos al kit será tuyo — para siempre, sin costo extra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. ¿ES PARA TI? ============ -->
+<section class="py-20 md:py-28 px-4 bg-gray-50">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-4">¿Es para ti?</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 fade-in">
+      <div class="bg-white rounded-2xl p-8 border border-emerald-100">
+        <h3 class="font-semibold text-lg text-emerald-600 mb-5 flex items-center gap-2">✅ SÍ es para ti si…</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex gap-3"><span class="text-emerald-400">→</span> Sos coach (o querés serlo) y buscás profesionalizarte</li>
+          <li class="flex gap-3"><span class="text-emerald-400">→</span> Querés dar sesiones con estructura y confianza</li>
+          <li class="flex gap-3"><span class="text-emerald-400">→</span> Necesitás herramientas listas sin crearlas de cero</li>
+          <li class="flex gap-3"><span class="text-emerald-400">→</span> Querés cobrar más y tener más clientes</li>
+          <li class="flex gap-3"><span class="text-emerald-400">→</span> Valorás tu tiempo y querés sistematizar tu práctica</li>
+          <li class="flex gap-3"><span class="text-emerald-400">→</span> Trabajás en coaching de vida, ejecutivo, organizacional o PNL</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-red-100">
+        <h3 class="font-semibold text-lg text-red-500 mb-5 flex items-center gap-2">❌ NO es para ti si…</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex gap-3"><span class="text-red-400">→</span> Buscás un curso de coaching (esto son herramientas, no formación)</li>
+          <li class="flex gap-3"><span class="text-red-400">→</span> No estás dispuesto/a a implementar lo que recibís</li>
+          <li class="flex gap-3"><span class="text-red-400">→</span> Esperás que alguien haga el trabajo por vos</li>
+          <li class="flex gap-3"><span class="text-red-400">→</span> No te interesa mejorar tu práctica profesional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. TESTIMONIOS ============ -->
+<section class="py-20 md:py-28 px-4 overflow-hidden">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">Testimonios</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-4">Lo que dicen nuestros coaches</h2>
+      <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+        <span class="text-amber-400">★★★★★</span> <strong class="text-dark">4.9</strong>/5 de <strong class="text-dark">2,400+</strong> coaches
+      </div>
+    </div>
+  </div>
+  <!-- Carousel row 1 -->
+  <div class="ticker-wrap mb-6">
+    <div class="testimonial-track">
+      <!-- Set 1 -->
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white text-xs font-bold">MC</div>
+          <div><p class="font-semibold text-sm">María Catalina</p><p class="text-xs text-gray-400">Coach de Vida · Argentina</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Estuve meses buscando algo así. Desde que uso las plantillas, mis sesiones son mucho más profesionales y mis clientes lo notan. Lo mejor: no tuve que crear nada desde cero."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center text-white text-xs font-bold">RP</div>
+          <div><p class="font-semibold text-sm">Roberto Pérez</p><p class="text-xs text-gray-400">Coach Ejecutivo · México</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"La guía de precios sola vale más que los $97. Por fin entendí cómo posicionar mis servicios premium. En 2 meses dupliqué mis tarifas."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-violet-600 flex items-center justify-center text-white text-xs font-bold">LS</div>
+          <div><p class="font-semibold text-sm">Lucía Salazar</p><p class="text-xs text-gray-400">Coach Ontológico · Colombia</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Las evaluaciones de diagnóstico cambiaron mis procesos. Ahora mis coachees ven su progreso en blanco y negro. Eso genera confianza y retención."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-bold">DM</div>
+          <div><p class="font-semibold text-sm">Diego Martínez</p><p class="text-xs text-gray-400">Coach PNL · España</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Llevo 10 años como coach y nunca encontré algo tan completo. Las dinámicas grupales son oro puro. Mis talleres subieron de nivel."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white text-xs font-bold">AV</div>
+          <div><p class="font-semibold text-sm">Ana Villanueva</p><p class="text-xs text-gray-400">Life Coach · Chile</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Soy nueva en coaching y este kit me dio la estructura que necesitaba para empezar con confianza. Las plantillas de marketing me ayudaron a conseguir mis primeros 5 clientes."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center text-white text-xs font-bold">FG</div>
+          <div><p class="font-semibold text-sm">Fernando García</p><p class="text-xs text-gray-400">Coach Empresarial · Uruguay</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"El banco de preguntas poderosas es increíble. Ahora tengo preguntas para cualquier situación. Mis sesiones fluyen mucho mejor."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white text-xs font-bold">MC</div>
+          <div><p class="font-semibold text-sm">María Catalina</p><p class="text-xs text-gray-400">Coach de Vida · Argentina</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Estuve meses buscando algo así. Desde que uso las plantillas, mis sesiones son mucho más profesionales y mis clientes lo notan. Lo mejor: no tuve que crear nada desde cero."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center text-white text-xs font-bold">RP</div>
+          <div><p class="font-semibold text-sm">Roberto Pérez</p><p class="text-xs text-gray-400">Coach Ejecutivo · México</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"La guía de precios sola vale más que los $97. Por fin entendí cómo posicionar mis servicios premium. En 2 meses dupliqué mis tarifas."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-violet-600 flex items-center justify-center text-white text-xs font-bold">LS</div>
+          <div><p class="font-semibold text-sm">Lucía Salazar</p><p class="text-xs text-gray-400">Coach Ontológico · Colombia</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Las evaluaciones de diagnóstico cambiaron mis procesos. Ahora mis coachees ven su progreso en blanco y negro. Eso genera confianza y retención."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-bold">DM</div>
+          <div><p class="font-semibold text-sm">Diego Martínez</p><p class="text-xs text-gray-400">Coach PNL · España</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Llevo 10 años como coach y nunca encontré algo tan completo. Las dinámicas grupales son oro puro. Mis talleres subieron de nivel."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white text-xs font-bold">AV</div>
+          <div><p class="font-semibold text-sm">Ana Villanueva</p><p class="text-xs text-gray-400">Life Coach · Chile</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"Soy nueva en coaching y este kit me dio la estructura que necesitaba para empezar con confianza. Las plantillas de marketing me ayudaron a conseguir mis primeros 5 clientes."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+      <div class="shrink-0 w-[340px] mx-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center text-white text-xs font-bold">FG</div>
+          <div><p class="font-semibold text-sm">Fernando García</p><p class="text-xs text-gray-400">Coach Empresarial · Uruguay</p></div>
+        </div>
+        <p class="text-sm text-gray-600">"El banco de preguntas poderosas es increíble. Ahora tengo preguntas para cualquier situación. Mis sesiones fluyen mucho mejor."</p>
+        <p class="text-amber-400 text-sm mt-3">★★★★★</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. PRECIO CON ANCLAJE ============ -->
+<section id="precio" class="py-20 md:py-28 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">Inversión única</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-6">Todo lo que necesitás.<br>Un solo pago.</h2>
+    </div>
+
+    <div class="fade-in bg-white rounded-3xl border-2 border-dark p-10 md:p-14 shadow-xl max-w-lg mx-auto relative overflow-hidden">
+      <!-- Badge -->
+      <div class="absolute top-0 right-0 bg-amber-400 text-dark text-xs font-bold px-4 py-1.5 rounded-bl-xl">MÁS ELEGIDO</div>
+
+      <p class="text-sm text-gray-500 mb-1">Valor real del kit completo:</p>
+      <p class="text-3xl font-bold price-old inline-block mb-4">$697 USD</p>
+
+      <p class="text-sm text-gray-500 mb-2">Precio especial hoy:</p>
+      <div class="flex items-baseline justify-center gap-1 mb-2">
+        <span class="font-serif text-6xl md:text-7xl">$97</span>
+        <span class="text-xl text-gray-400">USD</span>
+      </div>
+      <p class="text-emerald-500 text-sm font-semibold mb-6">Ahorrás $600 — Un solo pago, acceso de por vida</p>
+
+      <div class="text-left text-sm text-gray-600 space-y-2 mb-8 max-w-xs mx-auto">
+        <p class="flex items-center gap-2"><span class="text-emerald-400">✓</span> 6 módulos con +100 herramientas</p>
+        <p class="flex items-center gap-2"><span class="text-emerald-400">✓</span> 5 bonos exclusivos ($400+ de valor)</p>
+        <p class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Actualizaciones de por vida</p>
+        <p class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Formatos editables (PDF, Docs, Sheets, Canva)</p>
+        <p class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Garantía de 7 días sin preguntas</p>
+        <p class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Acceso inmediato tras la compra</p>
+      </div>
+
+      <a href="#" class="block w-full bg-dark text-white text-lg font-semibold py-4 rounded-full glow-btn pulse-cta hover:scale-[1.02] transition-transform text-center">
+        Quiero el Kit Completo — $97 →
+      </a>
+
+      <p class="text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        Pago seguro · Acceso instantáneo
+      </p>
+    </div>
+
+    <!-- Urgency -->
+    <div class="fade-in mt-8 bg-amber-50 rounded-2xl p-6 border border-amber-100 max-w-lg mx-auto">
+      <p class="text-sm text-amber-800 font-medium">⏰ Este precio especial de <strong>$97</strong> es por tiempo limitado. El valor real del kit es $697+ y volverá a subir pronto.</p>
+    </div>
+
+    <!-- Loss aversion -->
+    <p class="text-gray-400 text-sm mt-6 fade-in">Cada semana sin estas herramientas son sesiones improvisadas, clientes perdidos y dinero que dejás sobre la mesa.</p>
+  </div>
+</section>
+
+<!-- ============ 13. GARANTÍA ============ -->
+<section class="py-16 md:py-20 px-4 bg-gray-50">
+  <div class="max-w-2xl mx-auto text-center fade-in">
+    <div class="w-20 h-20 mx-auto mb-6 bg-emerald-50 rounded-full flex items-center justify-center">
+      <svg class="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+    </div>
+    <h2 class="font-serif text-3xl md:text-4xl mb-4">Garantía de 7 Días</h2>
+    <p class="text-gray-500 text-lg mb-4">Sin riesgo. Sin preguntas. Sin letra chica.</p>
+    <p class="text-gray-500 max-w-lg mx-auto">Explorá el kit completo durante 7 días. Si sentís que no es para vos, simplemente escribinos y te devolvemos el 100% de tu dinero. Sin formularios, sin excusas, sin preguntas. Así de simple.</p>
+    <p class="text-emerald-600 font-semibold mt-4">Todo el riesgo es nuestro. La decisión es tuya.</p>
+  </div>
+</section>
+
+<!-- ============ 14. FAQ ============ -->
+<section id="faq" class="py-20 md:py-28 px-4">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">Preguntas frecuentes</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl">Todo lo que necesitás saber</h2>
+    </div>
+    <div class="space-y-4 fade-in" id="faqContainer">
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿Qué incluye exactamente el kit?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">Más de 100 herramientas profesionales organizadas en 6 módulos: Plantillas de Sesión, Evaluación y Diagnóstico, Comunicación, Gestión de Práctica, Dinámicas y Ejercicios, y Marketing para Coaches. Además, 5 bonos exclusivos valorados en $400+ USD.</div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿En qué formato están las herramientas?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">Las herramientas vienen en PDF, Google Docs, Google Sheets y Canva. Podés editarlas, personalizarlas con tu marca y adaptarlas a tu estilo de coaching. No necesitás software especial.</div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿Es un pago único o suscripción?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">Un solo pago de $97 USD. Sin suscripciones, sin cargos recurrentes, sin sorpresas. Pagás una vez y accedés para siempre, incluyendo todas las actualizaciones futuras.</div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿Sirve para coaches principiantes?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">¡Absolutamente! Si estás empezando, el kit te da la estructura profesional que necesitás desde el día 1. Si ya tenés experiencia, vas a optimizar y elevar tu práctica con herramientas que te ahorran horas de trabajo.</div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿Cómo funciona la garantía?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">Tenés 7 días para explorar el kit completo. Si por cualquier razón sentís que no es para vos, escribinos y te devolvemos el 100% de tu dinero. Sin preguntas, sin formularios, sin complicaciones.</div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿Para qué tipo de coaching sirve?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">Las herramientas son versátiles y aplicables a coaching de vida, ejecutivo, organizacional, ontológico, PNL, de equipos y más. Cada plantilla es editable para que la adaptes a tu nicho específico.</div>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold hover:bg-gray-50 transition">
+          <span>¿Cuándo recibo el acceso?</span>
+          <svg class="w-5 h-5 shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-6 text-sm text-gray-500">Inmediatamente. Una vez que completás tu compra, recibís un email con el acceso a todas las herramientas. En menos de 5 minutos ya podés estar usándolas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 15. CREADOR ============ -->
+<section class="py-20 md:py-28 px-4 bg-gray-50">
+  <div class="max-w-4xl mx-auto">
+    <div class="fade-in flex flex-col md:flex-row items-center gap-10 md:gap-14">
+      <!-- Avatar placeholder -->
+      <div class="shrink-0">
+        <div class="w-44 h-44 md:w-52 md:h-52 rounded-3xl bg-gradient-to-br from-sky-100 to-blue-200 flex items-center justify-center shadow-lg">
+          <span class="font-serif text-6xl text-sky-600">AD</span>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">El creador</p>
+        <h2 class="font-serif text-3xl md:text-4xl mb-4">Ariel Díaz</h2>
+        <p class="text-gray-500 mb-4">Coach Ontológico Profesional · Master en PNL · 25+ años de experiencia formando coaches y líderes en más de 15 países.</p>
+        <p class="text-gray-500 mb-4">Ha impactado a más de 15,000 personas a través de sesiones individuales, talleres y programas de formación. Creó Coach Tools porque vio que miles de coaches talentosos fracasaban no por falta de habilidad, sino por falta de herramientas profesionales.</p>
+        <div class="flex flex-wrap gap-3 text-xs">
+          <span class="bg-sky-50 text-sky-600 px-3 py-1.5 rounded-full font-medium">Coach Ontológico</span>
+          <span class="bg-sky-50 text-sky-600 px-3 py-1.5 rounded-full font-medium">Master PNL</span>
+          <span class="bg-sky-50 text-sky-600 px-3 py-1.5 rounded-full font-medium">25+ años</span>
+          <span class="bg-sky-50 text-sky-600 px-3 py-1.5 rounded-full font-medium">15K+ personas</span>
+          <span class="bg-sky-50 text-sky-600 px-3 py-1.5 rounded-full font-medium">15+ países</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 16. CTA FINAL ============ -->
+<section class="py-24 md:py-32 px-4">
+  <div class="max-w-3xl mx-auto text-center fade-in">
+    <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">¿Listo para transformar<br>tu práctica de coaching?</h2>
+    <p class="text-gray-500 text-lg mb-4 max-w-xl mx-auto">+100 herramientas profesionales. Un solo pago de $97. Acceso de por vida. Garantía de 7 días.</p>
+    <p class="text-gray-400 text-sm mb-10">No necesitás habilidades técnicas · Acceso inmediato · Todo editable</p>
+
+    <a href="#precio" class="inline-flex items-center gap-2 bg-dark text-white text-lg font-semibold px-12 py-5 rounded-full glow-btn pulse-cta hover:scale-[1.03] transition-transform">
+      Obtener Coach Tools — $97 →
+    </a>
+
+    <div class="mt-8 flex items-center justify-center gap-4 text-sm text-gray-400">
+      <span class="flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        Pago seguro
+      </span>
+      <span>·</span>
+      <span>Acceso instantáneo</span>
+      <span>·</span>
+      <span>Garantía 7 días</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 17. FOOTER ============ -->
+<footer class="border-t border-gray-100 py-10 px-4">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <a href="#" class="font-serif text-xl text-dark">Coach<span class="text-sky-400">Tools</span></a>
+    <div class="flex items-center gap-6 text-sm text-gray-400">
+      <a href="#incluye" class="hover:text-dark transition">Qué Incluye</a>
+      <a href="#precio" class="hover:text-dark transition">Precio</a>
+      <a href="#faq" class="hover:text-dark transition">FAQ</a>
+    </div>
+    <p class="text-xs text-gray-400">© 2026 Coach Tools by Ariel Díaz. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+// Mobile menu
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+burger.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// Typewriter
+const phrases = [
+  'Dejá de improvisar. Empezá a impactar.',
+  '+100 plantillas editables listas para usar.',
+  'Sesiones profesionales desde el día 1.',
+  'El kit que usan 2,400+ coaches en 15 países.',
+  'Un solo pago. Acceso de por vida.'
+];
+let phraseIdx = 0, charIdx = 0, isDeleting = false;
+const twEl = document.getElementById('typewriter');
+function typewrite() {
+  const current = phrases[phraseIdx];
+  if (!isDeleting) {
+    twEl.textContent = current.substring(0, charIdx + 1);
+    charIdx++;
+    if (charIdx === current.length) { isDeleting = true; setTimeout(typewrite, 2000); return; }
+    setTimeout(typewrite, 50);
+  } else {
+    twEl.textContent = current.substring(0, charIdx - 1);
+    charIdx--;
+    if (charIdx === 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; setTimeout(typewrite, 400); return; }
+    setTimeout(typewrite, 25);
+  }
+}
+typewrite();
+
+// Fade-in on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Counter animation
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+      const suffix = target >= 15000 ? 'K+' : target === 25 ? '+' : '+';
+      const displayVal = (v) => {
+        if (target >= 15000) return Math.floor(v / 1000) + 'K+';
+        return Math.floor(v) + '+';
+      };
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = displayVal(current);
+      }, 16);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter-value').forEach(el => counterObs.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = !answer.classList.contains('hidden');
+    // Close all
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+    document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+    if (!isOpen) {
+      answer.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    }
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
